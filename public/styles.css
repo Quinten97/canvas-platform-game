@@ -1,0 +1,11 @@
+/* This file is for global styles only */
+:root {
+  --game-window: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--game-window);
+}
