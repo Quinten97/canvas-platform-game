@@ -1,6 +1,6 @@
 /* This file is for global styles only */
 :root {
-  --game-window: black;
+  --game-window: grey;
 }
 
 * {
