@@ -40,7 +40,7 @@ function step() {
 function draw() {
   //Clear canvas
   context.fillStyle = "white";
-  context.fillRect(0, 0, 1280, 720);
+  context.fillRect(0, 0, 720, 1280);
 
   //Draw the player
   player.draw();
@@ -61,6 +61,7 @@ function setupInputs() {
   document.addEventListener("keyup", function (event) {
     if (event.key === "w" || event.key === "ArrowUp") {
       upKey = false;
+      s;
     } else if (event.key === "s" || event.key === "ArrowDown") {
       downKey = false;
     } else if (event.key === "a" || event.key === "ArrowLeft") {
