@@ -29,7 +29,7 @@ window.onload = function () {
   for (let i = 0; i < 6; i++) {
     platforms.push(new Platform(0 + 100 * i, 1180, 500, 100, 1));
   }
-
+  
   //Start game loop
   gameLoop = setInterval(step, 1000 / 30);
 };
@@ -46,12 +46,15 @@ function draw() {
   //Clear canvas
   context.fillStyle = "white";
   context.fillRect(0, 0, 720, 1280);
+  
   //Draw the player
   player.draw();
+  
   //Draw Platforms
   for (let i = 0; i < platforms.length; i++) {
     platforms[i].draw();
   }
+  
 }
 
 function setupInputs() {
