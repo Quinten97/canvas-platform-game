@@ -1,17 +1,16 @@
 // setInterval(gameLoop, 33); // 33 milliseconds = ~ 30 frames per sec
 //Creating drawing vars
-var canvas;
-var context;
-
+let canvas;
+let context;
 //Input vars
-var upKey;
-var rightKey;
-var downKey;
-var leftKey;
-
+let upKey;
+let rightKey;
+let downKey;
+let leftKey;
 //Game vars
-var gameLoop;
-var player;
+let gameLoop;
+let player;
+
 //Runs when canvas is loaded
 window.onload = function () {
   //Assigning canvas and context vars
