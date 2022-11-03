@@ -3,8 +3,8 @@ function Player(x, y) {
   this.y = y;
   this.xspeed = 0;
   this.yspeed = 0;
-  this.friction = 0.7;
-  this.maxSpeed = 20;
+  this.friction = 0.6;
+  this.maxSpeed = 10;
   this.width = 100;
   this.height = 100;
   this.active = true;
@@ -12,7 +12,7 @@ function Player(x, y) {
   this.step = function () {
     //Movement
     if (this.active) {
-      //Hor. Movementw
+      //Hor. Movement
       if ((!leftKey && !rightKey) || (leftKey && rightKey)) {
         //Slow down
         this.xspeed *= this.friction;
