@@ -10,6 +10,7 @@ let leftKey;
 //Game vars
 let gameLoop;
 let player;
+let platforms = [];
 
 //Runs when canvas is loaded
 window.onload = function () {
@@ -21,9 +22,14 @@ window.onload = function () {
   setupInputs();
 
   //Create Player
-  player = new Player(100, 400);
+  player = new Player(320, 1070);
   step();
 
+  //Create Platforms
+  for (let i = 0; i < 6; i++) {
+    platforms.push(new Platform(0 + 100 * i, 1180, 500, 100, 1));
+  }
+  
   //Start game loop
   gameLoop = setInterval(step, 1000 / 30);
 };
@@ -40,9 +46,15 @@ function draw() {
   //Clear canvas
   context.fillStyle = "white";
   context.fillRect(0, 0, 720, 1280);
-
+  
   //Draw the player
   player.draw();
+  
+  //Draw Platforms
+  for (let i = 0; i < platforms.length; i++) {
+    platforms[i].draw();
+  }
+  
 }
 
 function setupInputs() {
@@ -69,4 +81,19 @@ function setupInputs() {
       rightKey = false;
     }
   });
+}
+
+//Collision Checking
+function checkCollision(r1, r2) {
+  if (r1.x >= r2.x + r2.width) {
+    return false;
+  } else if (r1.x + r1.width <= r2.x) {
+    return false;
+  } else if (r1.y >= r2.y + r2.height) {
+    return false;
+  } else if (r1.y + r1.height <= r2.y) {
+    return false;
+  } else {
+    return true;
+  }
 }
