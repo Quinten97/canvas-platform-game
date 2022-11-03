@@ -1,0 +1,21 @@
+/* This file is for global styles only */
+:root {
+  --game-window: rgb(134, 134, 134);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--game-window);
+}
+
+body {
+  text-align: center;
+}
+
+#game-window {
+  text-align: center;
+  margin-top: 100px;
+  border: 1px solid black;
+}
