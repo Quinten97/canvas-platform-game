@@ -1,5 +1,5 @@
-import { checkXCollision, checkYCollision } from "./Tilemap.js";
-let x = 50;
+import { checkCollision } from "./Tilemap.js";
+let x = 250;
 let y = 1000;
 let width = 100;
 let height = 100;
@@ -64,12 +64,28 @@ export function movePlayer(platforms) {
     }
   }
 
-  let playerRect = {
+  //This gets the seperate X and Y rectangles for collision
+  let horizontalRect = {
     x: x + xSpeed,
+    y: y,
+    width: width,
+    height: height,
+  };
+  let verticalRect = {
+    x: x,
     y: y + ySpeed,
     width: width,
     height: height,
   };
+
+  //THIS DOESN'T WORK PROPERLY
+  // let playerRect = {
+  //   x: x + xSpeed,
+  //   y: y + ySpeed,
+  //   width: width,
+  //   height: height,
+  // };
+
   for (const element of platforms) {
     // Check for Collisions
     //Horizontal Collision Rect
@@ -79,15 +95,36 @@ export function movePlayer(platforms) {
       width: element[2],
       height: element[3],
     };
-    console.log(checkXCollision(playerRect, platformRect));
-    console.log(checkYCollision(playerRect, platformRect));
 
-    if (checkXCollision(playerRect, platformRect)) {
+    // console.log(checkXCollision(playerRect, platformRect));
+    // console.log(checkYCollision(playerRect, platformRect));
+
+    //Console logging the new form
+    console.log(checkCollision(horizontalRect, platformRect));
+    console.log(checkCollision(verticalRect, platformRect));
+
+    //THIS WAY OF CHECKING MAKES THE COLLISIONS SMOOTHER WHEN LANDING
+    if (checkCollision(horizontalRect, platformRect)) {
+      while (checkCollision(horizontalRect, platformRect)) {
+        horizontalRect.x -= Math.sign(xSpeed);
+      }
+      x = horizontalRect.x;
       xSpeed = 0;
     }
-    if (checkYCollision(playerRect, platformRect)) {
+    if (checkCollision(verticalRect, platformRect)) {
+      while (checkCollision(verticalRect, platformRect)) {
+        verticalRect.y -= Math.sign(ySpeed);
+      }
+      y = verticalRect.y;
       ySpeed = 0;
     }
+
+    // if (checkXCollision(playerRect, platformRect)) {
+    //   xSpeed = 0;
+    // }
+    // if (checkYCollision(playerRect, platformRect)) {
+    //   ySpeed = 0;
+    // }
   }
 
   x += xSpeed;
