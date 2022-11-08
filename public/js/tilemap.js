@@ -1,4 +1,4 @@
-import Platform from "./platforms.js";
+import { drawPlatform } from "./Platform.js";
 import levelOne from "../Levels/levelOne.json" assert { type: "json" };
 
 export function levelSelect(level) {
@@ -14,10 +14,14 @@ export function helpGetPlatforms() {
 
 export function drawTilemap(arr, context) {
   arr.forEach((element) => {
-    let platforms = [];
-    platforms.push(new Platform(...element, context));
-    platforms.forEach((element) => {
-      element.draw();
-    });
+    drawPlatform(...element, context);
   });
+}
+
+export function checkXCollision(r1, r2) {
+  return r1.x <= r2.x + r2.width || r1.x + r1.width >= r2.x;
+}
+
+export function checkYCollision(r1, r2) {
+  return r1.y <= r2.y + r2.height || r1.y + r1.height >= r2.y;
 }
