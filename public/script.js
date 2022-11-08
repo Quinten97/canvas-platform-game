@@ -8,6 +8,7 @@ let currentPlatforms = helpGetPlatforms();
 const canvas = document.getElementById("game-window");
 const context = canvas.getContext("2d");
 input();
+
 function drawCanvas() {
   // console.log(player.upKey);
   //Clear canvas
