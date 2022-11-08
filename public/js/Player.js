@@ -78,14 +78,6 @@ export function movePlayer(platforms) {
     height: height,
   };
 
-  //THIS DOESN'T WORK PROPERLY
-  // let playerRect = {
-  //   x: x + xSpeed,
-  //   y: y + ySpeed,
-  //   width: width,
-  //   height: height,
-  // };
-
   for (const element of platforms) {
     // Check for Collisions
     //Horizontal Collision Rect
@@ -95,13 +87,6 @@ export function movePlayer(platforms) {
       width: element[2],
       height: element[3],
     };
-
-    // console.log(checkXCollision(playerRect, platformRect));
-    // console.log(checkYCollision(playerRect, platformRect));
-
-    //Console logging the new form
-    console.log(checkCollision(horizontalRect, platformRect));
-    console.log(checkCollision(verticalRect, platformRect));
 
     //THIS WAY OF CHECKING MAKES THE COLLISIONS SMOOTHER WHEN LANDING
     if (checkCollision(horizontalRect, platformRect)) {
@@ -118,13 +103,6 @@ export function movePlayer(platforms) {
       y = verticalRect.y;
       ySpeed = 0;
     }
-
-    // if (checkXCollision(playerRect, platformRect)) {
-    //   xSpeed = 0;
-    // }
-    // if (checkYCollision(playerRect, platformRect)) {
-    //   ySpeed = 0;
-    // }
   }
 
   x += xSpeed;
