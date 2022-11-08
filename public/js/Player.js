@@ -5,7 +5,7 @@ let width = 100;
 let height = 100;
 let xSpeed = 0;
 let ySpeed = 0;
-let friction = 0.6;
+let friction = 0.8;
 let maxSpeed = 20;
 let upKey;
 let downKey;
@@ -40,6 +40,9 @@ export function input() {
 
 export function movePlayer(platforms) {
   if (active) {
+    if ((!leftKey && !rightKey) || (leftKey && rightKey)) {
+      xSpeed *= friction;
+    }
     if (leftKey) {
       if (xSpeed >= -maxSpeed) {
         xSpeed--;
@@ -62,8 +65,8 @@ export function movePlayer(platforms) {
   }
 
   let playerRect = {
-    x: x,
-    y: y,
+    x: x + xSpeed,
+    y: y + ySpeed,
     width: width,
     height: height,
   };
@@ -76,10 +79,8 @@ export function movePlayer(platforms) {
       width: element[2],
       height: element[3],
     };
-    console.log(
-      checkXCollision(playerRect, platformRect),
-      checkYCollision(playerRect, platformRect)
-    );
+    console.log(checkXCollision(playerRect, platformRect));
+    console.log(checkYCollision(playerRect, platformRect));
 
     if (checkXCollision(playerRect, platformRect)) {
       xSpeed = 0;
