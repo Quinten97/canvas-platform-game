@@ -33,6 +33,7 @@ export function checkCollision(r1, r2) {
   }
 }
 
+//THIS STUFF BREAKS
 // export function checkXCollision(r1, r2) {
 //   if (r1.x >= r2.x + r2.width) {
 //     return false;

@@ -3,8 +3,9 @@ export function drawPlatform(x, y, width, height, type, context) {
     context.fillStyle = "green";
   }
   //In case there are more types of platforms:
-  // else if (type === 2) {
-  //   context.fillStyle = "red";
-  // }
+  //Finish Prize
+  else if (type === 2) {
+    context.fillStyle = "gold";
+  }
   context.fillRect(x, y, width, height);
 }
