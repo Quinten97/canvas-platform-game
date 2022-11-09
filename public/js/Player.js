@@ -1,6 +1,6 @@
 import { checkCollision } from "./Tilemap.js";
 let x = 250;
-let y = 4500;
+let y = 4200;
 let width = 100;
 let height = 100;
 let xSpeed = 0;

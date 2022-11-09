@@ -12,7 +12,7 @@ input();
 
 function drawCanvas() {
   context.fillStyle = "white";
-  context.fillRect(0, 0, 1080, 5000);
+  context.fillRect(0, 0, 1080, 6000);
 }
 
 function drawAll() {
@@ -23,7 +23,7 @@ function drawAll() {
 //Start game loop
 setInterval(() => {
   context.save();
-  context.translate(0, getPlayerY() + canvas.height / 2 + 500);
+  context.translate(0, getPlayerY() + canvas.height / 2 + 80);
   movePlayer(currentPlatforms);
   drawAll();
   context.restore();
