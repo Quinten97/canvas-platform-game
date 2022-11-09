@@ -79,7 +79,6 @@ export function movePlayer(platforms) {
 
   for (const element of platforms) {
     // Check for Collisions
-    //Horizontal Collision Rect
     const platformRect = {
       x: element[0],
       y: element[1],
