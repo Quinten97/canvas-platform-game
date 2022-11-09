@@ -7,4 +7,4 @@
 
 #### How did this ticket make you feel?
 
-[gif](go to https://giphy.com/ and replace this text with a link to a gif)
+![gif](go to https://giphy.com/ and replace this text with a link to a gif)
