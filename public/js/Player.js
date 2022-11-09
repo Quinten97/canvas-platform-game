@@ -1,6 +1,6 @@
 import { checkCollision } from "./Tilemap.js";
 let x = 250;
-let y = 1000;
+let y = 4500;
 let width = 100;
 let height = 100;
 let xSpeed = 0;
@@ -8,7 +8,6 @@ let ySpeed = 0;
 let friction = 0.8;
 let maxSpeed = 20;
 let upKey;
-let downKey;
 let leftKey;
 let rightKey;
 let active = true;
@@ -112,4 +111,9 @@ export function movePlayer(platforms) {
 export function drawPlayer(context) {
   context.fillStyle = "blue";
   context.fillRect(x, y, width, height);
+}
+
+//Helper Functions
+export function getPlayerY() {
+  return -y;
 }

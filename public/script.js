@@ -1,6 +1,6 @@
 // setInterval(gameLoop, 33); // 33 milliseconds = ~ 30 frames per sec
 import { drawTilemap, helpGetPlatforms, levelSelect } from "./js/Tilemap.js";
-import { input, movePlayer, drawPlayer } from "./js/Player.js";
+import { input, movePlayer, drawPlayer, getPlayerY } from "./js/Player.js";
 //get platform array
 let currentPlatforms = helpGetPlatforms();
 
@@ -10,16 +10,21 @@ const context = canvas.getContext("2d");
 input();
 
 function drawCanvas() {
-  // console.log(player.upKey);
   //Clear canvas
   context.fillStyle = "white";
-  context.fillRect(0, 0, 720, 1280);
+  context.fillRect(0, 0, 1080, 5000);
+}
+
+function drawAll() {
+  drawCanvas();
   drawTilemap(levelSelect(1), context);
   drawPlayer(context);
 }
-
 //Start game loop
 setInterval(() => {
+  context.save();
+  context.translate(0, getPlayerY() + canvas.height / 2 + 500);
   movePlayer(currentPlatforms);
-  drawCanvas();
+  drawAll();
+  context.restore();
 }, 1000 / 30);
