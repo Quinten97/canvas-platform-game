@@ -1,25 +1,20 @@
 import { drawPlatform } from "./Platform.js";
 import levelOne from "../Levels/levelOne.json" assert { type: "json" };
 
-export function levelSelect(level) {
+function levelSelect(level) {
   if (level === 1) {
     return levelOne;
   }
 }
 
-export function helpGetPlatforms() {
-  const platforms = levelSelect(1);
-  return platforms;
-}
-
-export function drawTilemap(arr, context) {
+function drawTilemap(arr, context) {
   arr.forEach((element) => {
     drawPlatform(...element, context);
   });
 }
 
 //Changed this to the original form of checking collision that comnbines both x and y
-export function checkCollision(r1, r2) {
+function checkCollision(r1, r2) {
   if (r1.x >= r2.x + r2.width) {
     return false;
   } else if (r1.x + r1.width <= r2.x) {
@@ -32,3 +27,5 @@ export function checkCollision(r1, r2) {
     return true;
   }
 }
+
+export { levelSelect, drawTilemap, checkCollision };

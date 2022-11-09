@@ -1,4 +1,4 @@
-export function drawPlatform(x, y, width, height, type, context) {
+function drawPlatform(x, y, width, height, type, context) {
   if (type === 1) {
     context.fillStyle = "green";
   }
@@ -9,3 +9,5 @@ export function drawPlatform(x, y, width, height, type, context) {
   }
   context.fillRect(x, y, width, height);
 }
+
+export { drawPlatform };
