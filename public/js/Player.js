@@ -12,6 +12,7 @@ let downKey;
 let leftKey;
 let rightKey;
 let active = true;
+let touchingTopPlatform = true;
 
 export function input() {
   document.addEventListener("keydown", function (event) {
@@ -53,9 +54,10 @@ export function movePlayer(platforms) {
         xSpeed++;
       }
     }
-    if (upKey) {
+    if (upKey && touchingTopPlatform) {
       if (ySpeed >= -maxSpeed) {
-        ySpeed--;
+        ySpeed = -40;
+        touchingTopPlatform = false;
       }
     } else {
       if (ySpeed <= maxSpeed) {
@@ -102,6 +104,11 @@ export function movePlayer(platforms) {
       }
       y = verticalRect.y;
       ySpeed = 0;
+      const topPlatformCollision =
+        verticalRect.y + verticalRect.height > platformRect.y;
+      if (!topPlatformCollision) {
+        touchingTopPlatform = true;
+      }
     }
   }
 
