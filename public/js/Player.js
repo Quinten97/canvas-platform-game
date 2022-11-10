@@ -13,12 +13,10 @@ let rightKey;
 let active = true;
 let touchingTopPlatform = true;
 
-export function input() {
+function input() {
   document.addEventListener("keydown", function (event) {
     if (event.key === "w" || event.key === "ArrowUp") {
       upKey = true;
-    } else if (event.key === "s" || event.key === "ArrowDown") {
-      downKey = true;
     } else if (event.key === "a" || event.key === "ArrowLeft") {
       leftKey = true;
     } else if (event.key === "d" || event.key === "ArrowRight") {
@@ -28,8 +26,6 @@ export function input() {
   document.addEventListener("keyup", function (event) {
     if (event.key === "w" || event.key === "ArrowUp") {
       upKey = false;
-    } else if (event.key === "s" || event.key === "ArrowDown") {
-      downKey = false;
     } else if (event.key === "a" || event.key === "ArrowLeft") {
       leftKey = false;
     } else if (event.key === "d" || event.key === "ArrowRight") {
@@ -38,7 +34,7 @@ export function input() {
   });
 }
 
-export function movePlayer(platforms) {
+function movePlayer(platforms) {
   if (active) {
     if ((!leftKey && !rightKey) || (leftKey && rightKey)) {
       xSpeed *= friction;
@@ -114,12 +110,9 @@ export function movePlayer(platforms) {
   y += ySpeed;
 }
 
-export function drawPlayer(context) {
+function drawPlayer(context) {
   context.fillStyle = "blue";
   context.fillRect(x, y, width, height);
 }
 
-//Helper Functions
-export function getPlayerY() {
-  return -y;
-}
+export { input, movePlayer, drawPlayer, y };

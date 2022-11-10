@@ -1,7 +1,7 @@
-import { drawTilemap, helpGetPlatforms, levelSelect } from "./js/Tilemap.js";
-import { input, movePlayer, drawPlayer, getPlayerY } from "./js/Player.js";
+import { drawTilemap, levelSelect } from "./js/Tilemap.js";
+import { input, movePlayer, drawPlayer, y } from "./js/Player.js";
 //Get curret levels platforms
-let currentPlatforms = helpGetPlatforms();
+let currentPlatforms = levelSelect(1);
 
 //Assigning canvas and context vars
 const canvas = document.getElementById("game-window");
@@ -23,7 +23,7 @@ function drawAll() {
 //Start game loop
 setInterval(() => {
   context.save();
-  context.translate(0, getPlayerY() + canvas.height / 2 + 80);
+  context.translate(0, -y + canvas.height / 2 + 80);
   movePlayer(currentPlatforms);
   drawAll();
   context.restore();
