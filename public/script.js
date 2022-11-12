@@ -23,7 +23,7 @@ function drawAll() {
 //Start game loop
 setInterval(() => {
   context.save();
-  context.translate(0, -y + canvas.height / 2 + 80);
+  context.translate(0, -y + canvas.height / 2 + 500);
   movePlayer(currentPlatforms);
   drawAll();
   context.restore();
