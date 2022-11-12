@@ -1,8 +1,8 @@
 import { checkCollision } from "./Tilemap.js";
 let x = 250;
-let y = 4200;
-let width = 100;
-let height = 100;
+let y = 4300;
+let width = 125;
+let height = 120;
 let xSpeed = 0;
 let ySpeed = 0;
 let friction = 0.8;
@@ -59,6 +59,14 @@ function movePlayer(platforms) {
         ySpeed++;
       }
     }
+  }
+
+  //Canvas "Barrier"
+  if (x < -1) {
+    xSpeed = 1;
+  }
+  if (x > 985) {
+    xSpeed = -1;
   }
 
   //This gets the seperate X and Y rectangles for collision
