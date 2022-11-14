@@ -1,5 +1,5 @@
-import { drawTilemap, levelSelect } from "./js/Tilemap.js";
-import { input, movePlayer, drawPlayer, y } from "./js/Player.js";
+import { drawTilemap, levelSelect } from "./js/Tilemap/tilemap.js";
+import { input, movePlayer, drawPlayer, y } from "./js/Player/Player.js";
 //Get curret levels platforms
 let currentPlatforms = levelSelect(1);
 

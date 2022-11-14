@@ -1,5 +1,5 @@
-import { drawPlatform } from "./Platform.js";
-import levelOne from "../Levels/levelOne.json" assert { type: "json" };
+import { drawPlatform } from "../Platforms/Platform.js";
+import levelOne from "./Levels/levelOne.json" assert { type: "json" };
 
 function levelSelect(level) {
   if (level === 1) {
