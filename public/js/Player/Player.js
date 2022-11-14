@@ -1,4 +1,4 @@
-import { checkCollision } from "./Tilemap.js";
+import { checkCollision } from "../Tilemap/tilemap.js";
 let x = 250;
 let y = 4300;
 let width = 125;
