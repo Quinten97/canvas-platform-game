@@ -1,5 +1,5 @@
 import { levelSelect } from "./tilemap.js";
-import { describe, expect, it, toEqual } from "@jest/globals";
+import { describe, expect, it } from "@jest/globals";
 describe("returns platform data based on argument passed in", () => {
   const levelOneTestData = [
     [0, 4900, 1080, 1000, 1],
