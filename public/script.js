@@ -1,5 +1,10 @@
 import { drawTilemap, levelSelect } from "./js/Tilemap/tilemap.js";
 import { input, movePlayer, drawPlayer, y } from "./js/Player/Player.js";
+import {
+  collectablesLevelSelect,
+  deleteCollectable,
+  drawCollectables,
+} from "./js/Collectables/Collectables.js";
 //Get curret levels platforms
 let currentPlatforms = levelSelect(1);
 
@@ -10,6 +15,7 @@ const context = canvas.getContext("2d");
 //add player inputs
 input();
 
+deleteCollectable();
 function drawCanvas() {
   context.fillStyle = "white";
   context.fillRect(0, 0, 1080, 6000);
@@ -19,6 +25,8 @@ function drawAll() {
   drawCanvas();
   drawTilemap(levelSelect(1), context);
   drawPlayer(context);
+
+  drawCollectables(collectablesLevelSelect(1), context);
 }
 //Start game loop
 setInterval(() => {
@@ -26,5 +34,6 @@ setInterval(() => {
   context.translate(0, -y + canvas.height / 2 + 500);
   movePlayer(currentPlatforms);
   drawAll();
+
   context.restore();
 }, 1000 / 30);
