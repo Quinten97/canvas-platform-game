@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Quinten97/canvas-platform-game#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.3.1",
     "jest": "^29.3.1"
   }
 }
