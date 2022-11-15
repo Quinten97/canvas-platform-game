@@ -1,5 +1,6 @@
 import collectablesOne from "./collectablesOne.json" assert { type: "json" };
-import { movePlayer } from "../Player/Player.js";
+import { x } from "../Player/Player.js";
+let score = 0;
 function drawCollectable(x, y, width, height, type, context) {
   if (type === 1) {
     context.fillStyle = "gold";
@@ -19,9 +20,11 @@ function collectablesLevelSelect(level) {
   }
 }
 
-function deleteCollectable() {
-  if (movePlayer.x == collectablesOne.x) {
-    console.log("delete");
+function pickupCollectable() {
+  if (x == collectablesOne[0][0]) {
+    score++;
   }
+  console.log("Score: " + score);
 }
-export { drawCollectables, collectablesLevelSelect, deleteCollectable };
+
+export { drawCollectables, collectablesLevelSelect, pickupCollectable };

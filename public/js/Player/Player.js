@@ -65,7 +65,7 @@ function movePlayer(platforms) {
   if (x < -1) {
     xSpeed = 1;
   }
-  if (x > 985) {
+  if (x > 945) {
     xSpeed = -1;
   }
 
@@ -123,4 +123,4 @@ function drawPlayer(context) {
   context.fillRect(x, y, width, height);
 }
 
-export { input, movePlayer, drawPlayer, y };
+export { input, movePlayer, drawPlayer, x, y };
