@@ -1,5 +1,6 @@
 import { drawTilemap, levelSelect } from "./js/Tilemap/tilemap.js";
 import { input, movePlayer, drawPlayer, y } from "./js/Player/Player.js";
+import { drawEnemyMap, enemyLevel } from "./js/Enemy/Enemy.js";
 //Get curret levels platforms
 let currentPlatforms = levelSelect(1);
 
@@ -18,6 +19,7 @@ function drawCanvas() {
 function drawAll() {
   drawCanvas();
   drawTilemap(levelSelect(1), context);
+  drawEnemyMap(enemyLevel(1), context);
   drawPlayer(context);
 }
 //Start game loop
